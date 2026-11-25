@@ -92,10 +92,37 @@ html,body{width:100%;height:100%;background:#110f39;overflow:hidden;font-family:
 #ctl{position:absolute;right:60px;bottom:14px;display:flex;gap:14px;z-index:30}
 #ctl button{width:62px;height:62px;border-radius:18px;border:2px solid rgba(207,211,238,.4);background:rgba(17,15,57,.72);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
 #ctl button svg{width:28px;height:28px}
-#prog{position:absolute;left:60px;right:300px;bottom:28px;display:flex;gap:10px;z-index:30}
+#prog{position:absolute;left:60px;right:320px;bottom:28px;display:flex;gap:10px;z-index:30}
 #prog i{flex:1;height:34px;position:relative;cursor:pointer;-webkit-tap-highlight-color:transparent}
 #prog i::before{content:'';position:absolute;left:0;right:0;top:14px;height:6px;border-radius:3px;background:rgba(207,211,238,.2)}
 #prog i b{position:absolute;left:0;top:14px;height:6px;width:0;border-radius:3px;background:#7cf2c4}
+/* marketing content: hub in the middle, drafts either side, week strip below */
+.orbm{position:absolute;width:130px;height:130px;z-index:4}
+.orbm::before{content:'';position:absolute;inset:5px;border-radius:50%;background:#1a2358}
+.orbm svg{position:relative;width:100%;height:100%;overflow:visible}
+.mtile{position:absolute;border-radius:14px;overflow:hidden;background:#f3f5fb;color:#17154a}
+.mtile .im{height:112px;background:linear-gradient(135deg,#28469a,#7cf2c4);display:flex;align-items:center;justify-content:center}
+.mtag{position:absolute;left:10px;top:10px;padding:3px 12px;border-radius:999px;background:rgba(17,15,57,.72);color:#fff;font-size:17px;font-weight:500}
+.wk{position:absolute;left:28px;right:28px;top:74px;display:flex;gap:12px}
+.wk>div{flex:1;text-align:center;font-size:22px;color:#93a3d6}
+.wk .sl{margin-top:6px;height:66px;border-radius:14px;border:2px dashed rgba(207,211,238,.25);display:flex;align-items:center;justify-content:center}
+.wk .pl{line-height:1.2}.wk .pl b{display:block;font-weight:600;font-size:22px;color:#fff}.wk .pl em{font-style:normal;font-size:18px;color:#cfd3ee}
+/* hiring: a ranked list that the AI scores top to bottom, then re-sorts */
+.hc{display:flex;align-items:center;gap:12px;font-size:23px;padding:9px 0;color:#fff}
+.hc::before{content:'';width:12px;height:12px;border-radius:4px;background:#7cf2c4;flex:none}
+.vrail{position:absolute;left:38px;top:126px;width:4px;height:296px;border-radius:2px;background:rgba(207,211,238,.16)}
+.vrail i{display:block;width:100%;height:0;background:#7cf2c4;border-radius:2px}
+.hr{position:absolute;left:86px;right:24px;height:66px;border-radius:14px;border:1.5px solid rgba(207,211,238,.16);background:rgba(17,15,57,.35);display:flex;align-items:center;padding:0 18px;gap:16px}
+.hr .nm{flex:1;font-size:24px;font-weight:500;line-height:1.2;white-space:nowrap}
+.hr .nm em{display:block;font-style:normal;font-size:18px;font-weight:400;color:#93a3d6}
+.hr .mt{display:flex;gap:6px}
+.hr .mt i{width:34px;height:10px;border-radius:5px;background:rgba(207,211,238,.16);overflow:hidden}
+.hr .mt i b{display:block;height:100%;width:0;background:#7cf2c4}
+.hr .sc{width:62px;text-align:right;font-size:34px;font-weight:600;color:#7cf2c4}
+.hs{display:flex;align-items:center;gap:18px;height:84px;margin:0 28px 12px;padding:0 20px;border-radius:14px;border:2px dashed rgba(207,211,238,.25)}
+.hs b{font-size:28px;font-weight:600}
+.hs div{line-height:1.25;font-size:22px;font-weight:500}
+.hs em{display:block;font-style:normal;font-size:18px;font-weight:400;color:#7cf2c4}
 .cover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 .cover img{width:520px}
 .cover h2{font-weight:600;font-size:78px;line-height:1.1;margin-top:60px}
@@ -148,8 +175,50 @@ html,body{width:100%;height:100%;background:#110f39;overflow:hidden;font-family:
  <div class="cap" style="left:60px;width:320px"><i>1</i>Comes in</div><div class="cap" style="left:470px;width:200px"><i>2</i>AI reads</div><div class="cap" style="left:760px;width:380px"><i>3</i>Looks up prices</div><div class="cap" style="left:1220px;width:320px"><i>4</i>You approve</div>
 </div>
 
+<div class="scn" id="s6">
+ <div class="kick">Marketing content</div>
+ <div class="ttl">One product, <span class="m">a week of posts</span></div>
+ <svg class="fan" viewBox="0 0 1600 1000"><path class="fanp" d="M800 480 V 515"/><path class="fanp" d="M735 580 C 650 580, 620 470, 540 440"/><path class="fanp" d="M865 580 C 950 580, 980 470, 1060 440"/><path class="fanp" d="M800 645 V 670"/></svg>
+ <div class="card" id="m_in" style="left:580px;width:440px;top:270px;height:210px"><div id="m_tile" style="position:absolute;left:22px;top:22px;width:166px;height:166px;border-radius:14px;background:linear-gradient(135deg,#28469a,#7cf2c4);display:flex;align-items:center;justify-content:center"><svg viewBox="0 0 120 90" width="112" height="84"><rect x="16" y="42" width="24" height="40" rx="6" fill="#fff"/><rect x="48" y="28" width="24" height="54" rx="6" fill="#fff"/><rect x="80" y="48" width="24" height="34" rx="6" fill="#fff"/><ellipse cx="28" cy="31" rx="5" ry="8" fill="#ffc46b"/><ellipse cx="60" cy="17" rx="5" ry="8" fill="#ffc46b"/><ellipse cx="92" cy="37" rx="5" ry="8" fill="#ffc46b"/></svg></div>
+  <div style="position:absolute;left:208px;right:20px;top:24px"><div style="font-size:20px;color:#93a3d6">From the owner</div><div id="m_line" style="font-size:23px;line-height:1.35;font-weight:500;margin-top:8px">New candle set, 590 baht, launching Friday</div></div></div>
+ <div class="orbm" id="orbm" style="left:735px;top:515px"><svg viewBox="0 0 200 200"><circle class="rg" cx="100" cy="100" r="84" fill="none" stroke="#7cf2c4" stroke-opacity=".55" stroke-width="3" stroke-dasharray="10 12"/><circle class="rg2" cx="100" cy="100" r="58" fill="none" stroke="#93a9e0" stroke-opacity=".7" stroke-width="3" stroke-dasharray="6 10"/><circle class="rip" cx="100" cy="100" r="30" fill="none" stroke="#7cf2c4" stroke-width="3" opacity="0"/><g class="orb"><circle cx="100" cy="16" r="6" fill="#7cf2c4"/><circle cx="172" cy="142" r="5" fill="#93a9e0"/><circle cx="28" cy="142" r="4" fill="#7cf2c4"/></g><circle class="core" cx="100" cy="100" r="30" fill="#7cf2c4"/></svg></div>
+ <div class="card" id="m_d1" style="left:60px;width:480px;top:270px;height:350px"><div class="otl">Instagram</div>
+  <div class="mtile" id="m_post" style="left:24px;top:78px;width:262px;height:250px"><div class="im"><svg viewBox="0 0 120 90" width="112" height="84"><rect x="16" y="42" width="24" height="40" rx="6" fill="#fff"/><rect x="48" y="28" width="24" height="54" rx="6" fill="#fff"/><rect x="80" y="48" width="24" height="34" rx="6" fill="#fff"/><ellipse cx="28" cy="31" rx="5" ry="8" fill="#ffc46b"/><ellipse cx="60" cy="17" rx="5" ry="8" fill="#ffc46b"/><ellipse cx="92" cy="37" rx="5" ry="8" fill="#ffc46b"/></svg></div><span class="mtag">Post</span><div style="padding:10px 12px"><div id="m_cap" style="font-size:17px;line-height:1.4;min-height:72px">เทียนหอมเซรามิกชุดใหม่ วางขายศุกร์นี้ ชุดละ 590 บาท</div><div id="m_tags" style="font-size:16px;color:#28469a;font-weight:500">#เทียนหอม #ของแต่งบ้าน</div></div></div>
+  <div class="mtile" id="m_story" style="left:304px;top:78px;width:150px;height:250px;background:linear-gradient(170deg,#1a2358,#28469a);color:#fff;text-align:center"><span class="mtag">Story</span><div style="margin-top:66px"><svg viewBox="0 0 120 90" width="112" height="84"><rect x="16" y="42" width="24" height="40" rx="6" fill="#fff"/><rect x="48" y="28" width="24" height="54" rx="6" fill="#fff"/><rect x="80" y="48" width="24" height="34" rx="6" fill="#fff"/><ellipse cx="28" cy="31" rx="5" ry="8" fill="#ffc46b"/><ellipse cx="60" cy="17" rx="5" ry="8" fill="#ffc46b"/><ellipse cx="92" cy="37" rx="5" ry="8" fill="#ffc46b"/></svg></div><div style="font-size:24px;font-weight:600;margin-top:14px">590 บาท</div><div style="font-size:18px;color:#7cf2c4">ศุกร์นี้</div></div></div>
+ <div class="card" id="m_d2" style="left:1060px;width:480px;top:270px;height:350px"><div class="otl">LINE message</div>
+  <div style="padding:10px 24px 0"><div class="bub in" id="m_bub" style="font-size:22px"><span id="m_ln">ชุดเทียนหอมเซรามิกใหม่มาแล้วค่ะ เปิดขายวันศุกร์นี้ ชุดละ 590 บาท</span><div id="m_len" style="font-size:18px;color:#6a6fa0;margin-top:8px">New ceramic candle set, out Friday. 590 baht.</div></div></div>
+  <div style="padding:14px 24px 0"><span class="ok" id="m_ok" style="font-size:21px">Thai and English ready</span></div></div>
+ <div class="card" id="m_wk" style="left:60px;width:1480px;top:670px;height:190px">
+  <div style="position:absolute;left:28px;top:16px;font-weight:600;font-size:28px;display:flex;align-items:center;gap:18px">This week<span class="ok" id="m_why" style="font-size:20px;font-weight:500">Thursday 19:00: when customers reply most</span></div>
+  <div style="position:absolute;right:28px;top:12px;display:flex;align-items:center;gap:14px"><span class="ok warn" id="m_wait" style="font-size:21px">Waiting for you</span><span class="btn" id="m_btn" style="padding:6px 24px;font-size:24px">Approve</span></div>
+  <span class="ok" id="m_done" style="position:absolute;right:28px;top:18px;font-size:23px">1 approval, 5 posts scheduled</span>
+  <div class="wk"><div>Mon<div class="sl" id="m_s0"><div class="pl"><b>Post</b><em>12:00</em></div></div></div><div>Tue<div class="sl" id="m_s1"></div></div><div>Wed<div class="sl" id="m_s2"><div class="pl"><b>Story</b><em>18:00</em></div></div></div><div>Thu<div class="sl" id="m_s3"><div class="pl"><b>LINE</b><em>19:00</em></div></div></div><div>Fri<div class="sl" id="m_s4"><div class="pl"><b>Post</b><em>09:00</em></div></div></div><div>Sat<div class="sl" id="m_s5"></div></div><div>Sun<div class="sl" id="m_s6"><div class="pl"><b>Story</b><em>11:00</em></div></div></div></div></div>
+</div>
+
+<div class="scn" id="s7">
+ <div class="kick">Hiring</div>
+ <div class="ttl">Twelve CVs in, <span class="m">two interviews booked</span></div>
+ <div class="card" id="h_job" style="left:60px;width:340px"><div class="otl">Hiring for</div>
+  <div style="padding:6px 28px 0;font-size:30px;font-weight:600;line-height:1.2;color:#7cf2c4">Weekend shop assistant</div>
+  <div class="sub" style="padding-top:22px">Scored only on</div>
+  <div style="padding:8px 28px 0"><div class="hc">Weekend availability</div><div class="hc">Customer experience</div><div class="hc">Thai and English</div></div>
+  <div id="h_no" style="position:absolute;left:28px;right:28px;bottom:26px;font-size:20px;line-height:1.35;color:#93a3d6">Not used: photo, age, gender</div></div>
+ <div class="card" id="h_list" style="left:440px;width:680px"><div class="dbh" style="padding:24px 28px 10px">CVs read<span id="h_n" style="color:#7cf2c4">0</span><span class="ok" id="h_sl" style="margin-left:auto;font-size:21px">3 shortlisted</span></div>
+  <div class="vrail"><i id="h_rf"></i></div>
+  <div class="hr" id="h_r0" style="top:92px"><div class="nm">Candidate A<em>Weekdays only</em></div><div class="mt"><i><b></b></i><i><b></b></i><i><b></b></i></div><div class="sc" id="h_sc0">0</div></div>
+  <div class="hr" id="h_r1" style="top:166px"><div class="nm">Candidate B<em>Free weekends, 1 year in a cafe</em></div><div class="mt"><i><b></b></i><i><b></b></i><i><b></b></i></div><div class="sc" id="h_sc1">0</div></div>
+  <div class="hr" id="h_r2" style="top:240px"><div class="nm">Candidate C<em>No customer experience yet</em></div><div class="mt"><i><b></b></i><i><b></b></i><i><b></b></i></div><div class="sc" id="h_sc2">0</div></div>
+  <div class="hr" id="h_r3" style="top:314px"><div class="nm">Candidate D<em>Free weekends, 2 years in retail</em></div><div class="mt"><i><b></b></i><i><b></b></i><i><b></b></i></div><div class="sc" id="h_sc3">0</div></div>
+  <div class="hr" id="h_r4" style="top:388px"><div class="nm">Candidate E<em>Sundays only, 3 years in retail</em></div><div class="mt"><i><b></b></i><i><b></b></i><i><b></b></i></div><div class="sc" id="h_sc4">0</div></div></div>
+ <div class="orbm" id="orbh" style="left:443px;top:369px;width:74px;height:74px"><svg viewBox="0 0 200 200"><circle class="rg" cx="100" cy="100" r="84" fill="none" stroke="#7cf2c4" stroke-opacity=".55" stroke-width="3" stroke-dasharray="10 12"/><circle class="rg2" cx="100" cy="100" r="58" fill="none" stroke="#93a9e0" stroke-opacity=".7" stroke-width="3" stroke-dasharray="6 10"/><circle class="rip" cx="100" cy="100" r="30" fill="none" stroke="#7cf2c4" stroke-width="3" opacity="0"/><g class="orb"><circle cx="100" cy="16" r="6" fill="#7cf2c4"/><circle cx="172" cy="142" r="5" fill="#93a9e0"/><circle cx="28" cy="142" r="4" fill="#7cf2c4"/></g><circle class="core" cx="100" cy="100" r="30" fill="#7cf2c4"/></svg></div>
+ <div class="card" id="h_cal" style="left:1160px;width:380px"><div class="otl">Interviews</div><div class="sub" style="padding-bottom:16px">This Saturday</div>
+  <div class="hs" id="h_s0"><b>10:00</b><div>Candidate D<em>Invite sent</em></div></div>
+  <div class="hs" id="h_s1"><b>11:30</b><div>Candidate B<em>Invite sent</em></div></div>
+  <div style="padding:10px 28px 0;position:relative"><div id="h_q" style="font-size:23px;color:#cfd3ee;margin-bottom:14px">Invite the top two?</div><span class="btn" id="h_btn">Approve</span><span class="ok" id="h_done" style="font-size:22px;position:absolute;left:28px;top:18px">2 interviews booked</span></div></div>
+</div>
+
 <div class="scn" id="s4">
- <div class="kick">Quote to cash</div>
+ <div class="kick">Quotes and payments</div>
  <div class="ttl">One request, <span class="m">followed through</span> to payment</div>
 <div class="card qc" id="qc0" style="left:60px;width:264px"><div class="hd"><i>1</i>Request</div><div class="bd"><div class="bub in" id="q_msg" style="font-size:21px">ขอใบเสนอราคาชุดของขวัญ 20 ชุดค่ะ<div style="font-size:18px;color:#6a6fa0;margin-top:6px">Quote for 20 gift sets, please.</div></div></div></div>
 <div class="card qc" id="qc1" style="left:364px;width:264px"><div class="hd"><i>2</i>Quote</div><div class="bd"><div class="qp" id="q_doc"><div style="font-weight:600;color:#28469a;font-size:22px">QT-0107</div><div class="row" id="q_l1"><span>Gift set x20</span><span>9,000</span></div><div class="row" id="q_l2"><span>Delivery</span><span>500</span></div><div class="row" id="q_l3" style="border:none;font-weight:600;font-size:24px"><span>Total</span><span>9,500</span></div></div></div></div>
@@ -207,7 +276,7 @@ html,body{width:100%;height:100%;background:#110f39;overflow:hidden;font-family:
 <div class="scn" id="close"><div class="cover"><h2>Which task would you hand<br>to <span style="color:#7cf2c4">AI</span> first?</h2>
  <div style="display:flex;align-items:center;gap:56px;margin-top:64px"><div id="qr" style="width:250px;height:250px;border-radius:14px;overflow:hidden;background:#fff"></div><div style="text-align:left"><div style="font-size:42px;font-weight:600">Chat with us on LINE</div><p style="margin-top:18px;font-size:32px;color:#cfd3ee;letter-spacing:.02em">tundranorth.com</p></div></div></div></div>
 <div class="hint" id="hint"></div>
-<div id="ctl"><button id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="#fff"><path d="M15.5 4.5 7 12l8.5 7.5z"/></svg></button><button id="pbtn" aria-label="Pause or play"></button><button id="fsb" aria-label="Full screen" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button><button id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8.5 4.5 17 12l-8.5 7.5z"/></svg></button></div>
+<div id="ctl"><button id="prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="#fff"><path d="M15.5 4.5 7 12l8.5 7.5z"/></svg></button><button id="pbtn" aria-label="Pause or play"></button><button id="next" aria-label="Next"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8.5 4.5 17 12l-8.5 7.5z"/></svg></button></div>
 <div id="prog"></div></div>
 <script>/*!
  * GSAP 3.15.0
@@ -252,7 +321,7 @@ html,body{width:100%;height:100%;background:#110f39;overflow:hidden;font-family:
     return lerp(lerp(lerp(h(xi,yi,zi),h(xi+1,yi,zi),u),lerp(h(xi,yi+1,zi),h(xi+1,yi+1,zi),u),v),lerp(lerp(h(xi,yi,zi+1),h(xi+1,yi,zi+1),u),lerp(h(xi,yi+1,zi+1),h(xi+1,yi+1,zi+1),u),v),w);}
   /* the state that scenes tween */
   const S={freq:.9,stretch:1,conv:0,cx:.5,cy:.5,alpha:.13,speed:.05,l1x:.12,l1y:.1,l1a:.5,l2x:.9,l2y:.95,l2a:.28,warm:0};
-  const SCENES=[{"freq": 0.9, "stretch": 1, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.13, "speed": 0.05, "l1x": 0.12, "l1y": 0.1, "l1a": 0.5, "l2x": 0.9, "l2y": 0.95, "l2a": 0.28, "warm": 0}, {"freq": 0.95, "stretch": 1.1, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.11, "speed": 0.045, "l1x": 0.2, "l1y": 0.15, "l1a": 0.34, "l2x": 0.88, "l2y": 0.9, "l2a": 0.16, "warm": 0.17}, {"freq": 1.0, "stretch": 1, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.12, "speed": 0.05, "l1x": 0.15, "l1y": 0.12, "l1a": 0.46, "l2x": 0.88, "l2y": 0.92, "l2a": 0.26, "warm": 0.34}, {"freq": 1.0, "stretch": 2.6, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.14, "speed": 0.045, "l1x": 0.08, "l1y": 0.3, "l1a": 0.32, "l2x": 0.95, "l2y": 0.75, "l2a": 0.14, "warm": 0.51}, {"freq": 1.1, "stretch": 1.7, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.11, "speed": 0.04, "l1x": 0.12, "l1y": 0.2, "l1a": 0.28, "l2x": 0.9, "l2y": 0.85, "l2a": 0.14, "warm": 0.68}, {"freq": 1.05, "stretch": 1, "conv": 1.0, "cx": 0.5, "cy": 0.52, "alpha": 0.15, "speed": 0.04, "l1x": 0.35, "l1y": 0.4, "l1a": 0.44, "l2x": 0.8, "l2y": 0.85, "l2a": 0.2, "warm": 0.85}, {"freq": 0.65, "stretch": 1, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.14, "speed": 0.035, "l1x": 0.5, "l1y": 0.3, "l1a": 0.55, "l2x": 0.5, "l2y": 0.95, "l2a": 0.4, "warm": 1}];
+  const SCENES=[{"freq": 0.9, "stretch": 1, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.13, "speed": 0.05, "l1x": 0.12, "l1y": 0.1, "l1a": 0.5, "l2x": 0.9, "l2y": 0.95, "l2a": 0.28, "warm": 0}, {"freq": 0.95, "stretch": 1.1, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.11, "speed": 0.045, "l1x": 0.2, "l1y": 0.15, "l1a": 0.34, "l2x": 0.88, "l2y": 0.9, "l2a": 0.16, "warm": 0.12}, {"freq": 1.0, "stretch": 1, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.12, "speed": 0.05, "l1x": 0.15, "l1y": 0.12, "l1a": 0.46, "l2x": 0.88, "l2y": 0.92, "l2a": 0.26, "warm": 0.24}, {"freq": 1.0, "stretch": 2.6, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.14, "speed": 0.045, "l1x": 0.08, "l1y": 0.3, "l1a": 0.32, "l2x": 0.95, "l2y": 0.75, "l2a": 0.14, "warm": 0.36}, {"freq": 1.1, "stretch": 1.7, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.11, "speed": 0.04, "l1x": 0.12, "l1y": 0.2, "l1a": 0.28, "l2x": 0.9, "l2y": 0.85, "l2a": 0.14, "warm": 0.49}, {"freq": 1.05, "stretch": 1, "conv": 1.0, "cx": 0.5, "cy": 0.52, "alpha": 0.15, "speed": 0.04, "l1x": 0.35, "l1y": 0.4, "l1a": 0.44, "l2x": 0.8, "l2y": 0.85, "l2a": 0.2, "warm": 0.61}, {"freq": 1.0, "stretch": 1, "conv": 0.55, "cx": 0.62, "cy": 0.5, "alpha": 0.13, "speed": 0.04, "l1x": 0.45, "l1y": 0.3, "l1a": 0.34, "l2x": 0.88, "l2y": 0.7, "l2a": 0.26, "warm": 0.73}, {"freq": 1.0, "stretch": 1.2, "conv": 0.2, "cx": 0.5, "cy": 0.5, "alpha": 0.12, "speed": 0.04, "l1x": 0.25, "l1y": 0.3, "l1a": 0.34, "l2x": 0.85, "l2y": 0.8, "l2a": 0.22, "warm": 0.85}, {"freq": 0.65, "stretch": 1, "conv": 0, "cx": 0.5, "cy": 0.5, "alpha": 0.14, "speed": 0.035, "l1x": 0.5, "l1y": 0.3, "l1a": 0.55, "l2x": 0.5, "l2y": 0.95, "l2a": 0.4, "warm": 1}];
   const mix=(a,b,t)=>Math.round(a+(b-a)*t);
   let W=0,H=0,dpr=1,C=96,R=54,F=null,t0=Math.random()*50,last=0,running=false,raf=0,flowT=0,prevNow=0,idleUntil=0;const FLOW={v:0};
   function size(){dpr=Math.min(window.devicePixelRatio||1,1.5);W=innerWidth;H=innerHeight;cv.width=Math.round(W*dpr);cv.height=Math.round(H*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);C=96;R=Math.max(30,Math.round(C*H/W));F=new Float32Array((C+1)*(R+1));}
@@ -402,8 +471,37 @@ tl.fromTo('#msg2',{y:24,autoAlpha:0,scale:.9},{y:0,autoAlpha:1,scale:1,duration:
 /* ---- scene 3: daily brief (33.5 - 48.5), fan-in from four sources ---- */
 hold('s2','#o2',T,2);
 /* ---- quote to cash: the AI travels along a day rail under five stages ---- */
-T+=SCN;T=card('Quote to Cash',T,3);const LQ=16;sceneIn('s4',T,LQ+HOLD);
-['s4b1',0,'s4b2',3,'s4b3',5.8,'s4b4',8.4,'s4b5',11].forEach((v,i,a)=>{if(i%2===0)beat(v,T+a[i+1],3);});
+/* ---- marketing content: a hub in the middle bursts out to drafts, then everything drops into a week strip ---- */
+T+=SCN;T=card('Marketing Content',T,3);const LM=16;sceneIn('s6',T,LM+HOLD);
+beat('s6b1',T,3);beat('s6b2',T+4.2,3);beat('s6b3',T+8.2,3);beat('s6b4',T+11.4,3);
+const MO={x:800,y:580},MLINE=$('m_line').textContent,MCAP=$('m_cap').textContent,MLN=$('m_ln').textContent;
+tl.fromTo('#orbm',{autoAlpha:0,scale:.6},{autoAlpha:1,scale:1,duration:.5,ease:'back.out(1.8)'},T+.5);
+tl.fromTo('#s6 .fanp',{opacity:0},{opacity:.5,duration:.6,stagger:.12},T+.9);
+tl.fromTo('#m_tile',{scale:.7,autoAlpha:0},{scale:1,autoAlpha:1,duration:.5,ease:'back.out(1.8)'},T+.6);
+tl.fromTo('#m_line',{autoAlpha:0},{autoAlpha:1,duration:.1},T+1.1);typeText($('m_line'),MLINE,T+1.1,1.5);
+['Candle set','590 baht','Friday'].forEach((tx,i)=>{fly(T+2.9+i*.42,tx,{x:640+i*70,y:400},{x:MO.x-60,y:MO.y-24},.75,-30);ping(T+3.7+i*.42,'#orbm');});
+const mp=pos($('m_post')),ms=pos($('m_story')),mb=pos($('m_bub'));
+fly(T+4.4,'Post',{x:MO.x-80,y:MO.y-24},{x:mp.cx-40,y:mp.cy-20},.8,90);fly(T+4.7,'Story',{x:MO.x-80,y:MO.y-24},{x:ms.cx-40,y:ms.cy-20},.8,130);fly(T+5,'LINE',{x:MO.x+10,y:MO.y-24},{x:mb.cx-40,y:mb.cy-20},.8,90);
+[4.4,4.7,5].forEach(d=>ping(T+d,'#orbm'));
+tl.fromTo('#m_post',{y:24,scale:.9,autoAlpha:0},{y:0,scale:1,autoAlpha:1,duration:.5,ease:'back.out(1.6)'},T+5.2);
+tl.fromTo('#m_cap',{autoAlpha:0},{autoAlpha:1,duration:.1},T+5.4);typeText($('m_cap'),MCAP,T+5.4,1.4);
+tl.fromTo('#m_tags',{autoAlpha:0},{autoAlpha:1,duration:.3},T+6.9);
+tl.fromTo('#m_story',{y:24,scale:.9,autoAlpha:0},{y:0,scale:1,autoAlpha:1,duration:.5,ease:'back.out(1.6)'},T+5.5);
+tl.fromTo('#m_bub',{y:24,scale:.9,autoAlpha:0},{y:0,scale:1,autoAlpha:1,duration:.5,ease:'back.out(1.6)'},T+5.8);
+tl.fromTo('#m_ln',{autoAlpha:0},{autoAlpha:1,duration:.1},T+6);typeText($('m_ln'),MLN,T+6,1.5);
+tl.fromTo('#m_len',{autoAlpha:0},{autoAlpha:1,duration:.3},T+7.5);tl.fromTo('#m_ok',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.3},T+7.8);
+[[0,mp],[2,ms],[3,mb],[4,mp],[6,ms]].forEach(([d,src],k)=>{const sp=pos($('m_s'+d)),t0=T+8.3+k*.42,md=mkChip('','mini');
+  along(md,t0,[{x:src.cx-23,y:src.cy-30},{x:(src.cx+sp.cx)/2-23,y:610},{x:sp.cx-23,y:sp.cy-30}],.75,'power2.inOut');ping(t0,'#orbm');
+  tl.fromTo('#m_s'+d,{borderColor:'rgba(207,211,238,0.25)'},{borderColor:'rgba(124,242,196,0.7)',duration:.25},t0+.8);
+  tl.fromTo('#m_s'+d+' .pl',{autoAlpha:0,scale:.8},{autoAlpha:1,scale:1,duration:.3,ease:'back.out(2)'},t0+.8);});
+tl.fromTo('#m_why',{autoAlpha:0,x:-10},{autoAlpha:1,x:0,duration:.35},T+10.9);tl.fromTo('#m_s3',{scale:1},{scale:1.08,duration:.18,yoyo:true,repeat:1},T+10.9);
+tl.fromTo('#m_wait',{autoAlpha:0},{autoAlpha:1,duration:.3},T+11.5);tl.fromTo('#m_btn',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.35},T+11.7);
+tl.to('#m_btn',{scale:.9,duration:.12,yoyo:true,repeat:1},T+12.7);tl.fromTo('#m_btn',{backgroundColor:'rgba(124,242,196,0)',color:'#7cf2c4'},{backgroundColor:'#7cf2c4',color:'#110f39',duration:.2},T+12.8);
+[0,2,3,4,6].forEach((d,k)=>tl.fromTo('#m_s'+d,{backgroundColor:'rgba(124,242,196,0)'},{backgroundColor:'rgba(124,242,196,0.2)',duration:.3},T+13+k*.12));
+tl.to('#m_wait,#m_btn',{autoAlpha:0,duration:.25},T+13.6);tl.fromTo('#m_done',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.3},T+13.9);
+hold('s6','#m_wk',T,3,LM);
+T+=LM+HOLD;T=card('Quotes and Payments',T,4);const LQ=16;sceneIn('s4',T,LQ+HOLD);
+['s4b1',0,'s4b2',3,'s4b3',5.8,'s4b4',8.4,'s4b5',11].forEach((v,i,a)=>{if(i%2===0)beat(v,T+a[i+1],4);});
 const QX=i=>192+304*i,QY=753;
 function up(t,i,lift){packet(t,{x:QX(i)-11,y:QY-70},{x:QX(i)-11,y:560},.4,lift||0);ping(t,'#orbq');}
 function go(t,i){tl.fromTo('#orbq',{x:304*(i-1)},{x:304*i,duration:.7,ease:'power2.inOut',immediateRender:false},t);tl.fromTo('#q_rail',{width:(i-1)*25+'%'},{width:i*25+'%',duration:.7,ease:'power2.inOut',immediateRender:false},t);
@@ -426,10 +524,10 @@ fly(T+11,'Reminder sent',{x:QX(3)-90,y:QY-110},{x:QX(4)-170,y:560},1.1,60);ping(
 go(T+12.3,4);const qa={v:0};tl.to(qa,{v:9500,duration:1.3,ease:'power1.out',onUpdate:()=>{$('q_amt').textContent=Math.round(qa.v).toLocaleString('en-US');}},T+13.1);
 [0,1,2,3].forEach(k=>packet(T+13+k*.25,{x:1620,y:330+k*55},{x:1430,y:440},.5,30));
 up(T+14.5,4);tl.fromTo('#q_m',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.3},T+15);
-hold('s4','#qc4',T,3,LQ);
+hold('s4','#qc4',T,4,LQ);
 /* ---- demand planning: three sources, a forecast, an order to approve ---- */
-T+=LQ+HOLD;T=card('Demand Planning Engine',T,4);const LD=16,HD=HOLD+1;sceneIn('s5',T,LD+HD);
-beat('s5b1',T,4);beat('s5b2',T+3.6,4);beat('s5b3',T+7,4);beat('s5b4',T+11.2,4);
+T+=LQ+HOLD;T=card('Demand Planning Engine',T,5);const LD=16,HD=HOLD+1;sceneIn('s5',T,LD+HD);
+beat('s5b1',T,5);beat('s5b2',T+3.6,5);beat('s5b3',T+7,5);beat('s5b4',T+11.2,5);
 const P5=document.querySelectorAll('#s5 .pipe');act(P5[0],T+6.6);act(P5[1],T+10.8);const A5={x:525,y:520};
 tl.fromTo('#s5 .fanp',{opacity:0},{opacity:.55,duration:.6,stagger:.12},T+.9);
 tl.fromTo('.dbar',{scaleY:0,transformOrigin:'50% 100%'},{scaleY:1,duration:.45,stagger:.1},T+1);
@@ -453,9 +551,40 @@ tl.fromTo('#d_btn',{autoAlpha:0,y:10},{autoAlpha:1,y:0,duration:.35},T+13.1);tl.
 tl.fromTo('#d_btn',{backgroundColor:'rgba(124,242,196,0)',color:'#7cf2c4'},{backgroundColor:'#7cf2c4',color:'#110f39',duration:.2},T+14);
 [0,1].forEach(k=>{const md=mkChip('','mini');along(md,T+14.2+k*.3,[{x:1350,y:600},{x:1480,y:480-k*60},{x:1640,y:420-k*90}],.9,'power1.in');});
 tl.to('#d_btn',{autoAlpha:0,duration:.25},T+14.7);tl.fromTo('#d_sent',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.3},T+15);
-hold('s5','#o5',T,4,LD);
-T+=LD+HD;T=card('Daily Brief',T,5);sceneIn('s3',T,SCN);
-beat('s3b1',T,5);beat('s3b2',T+4,5);beat('s3b3',T+8,5);beat('s3b4',T+12,5);
+hold('s5','#o5',T,5,LD);
+/* ---- hiring: CVs arrive from both sides, the AI scores down a vertical rail, the list re-sorts, two are invited ---- */
+T+=LD+HD;T=card('Hiring and CV Screening',T,6);const LH=16;sceneIn('s7',T,LH+HOLD);
+beat('s7b1',T,6);beat('s7b2',T+3.8,6);beat('s7b3',T+8.6,6);beat('s7b4',T+10.6,6);
+const HY=i=>406+74*i,HS=[62,88,45,93,71],HM=[[20,70,100],[100,60,100],[100,10,40],[100,90,100],[50,100,70]],HRK=[3,1,4,0,2];
+tl.fromTo('#h_job .hc',{autoAlpha:0,x:-14},{autoAlpha:1,x:0,duration:.35,stagger:.2},T+.8);
+tl.fromTo('#h_no',{autoAlpha:0},{autoAlpha:1,duration:.4},T+1.6);
+tl.set('#orbh',{y:0},T);tl.set('#h_rf',{height:'0%'},T);
+tl.fromTo('#orbh',{autoAlpha:0},{autoAlpha:1,duration:.4},T+.6);
+for(let k=0;k<8;k++){const L=k%2===0,md=mkChip('','mini');along(md,T+1.2+k*.22,[{x:L?-80:1660,y:300+k*12},{x:L?330:1230,y:258},{x:700+k*25,y:318}],.8,'power1.inOut');}
+const hn={v:0};tl.fromTo(hn,{v:0},{v:12,duration:2.1,ease:'none',onUpdate:()=>{$('h_n').textContent=Math.round(hn.v);}},T+1.4);
+[0,1,2,3,4].forEach(i=>{const r='#h_r'+i,ts=T+4+i*.9;
+  tl.fromTo(r,{autoAlpha:0,x:24},{autoAlpha:1,x:0,duration:.35},T+1.9+i*.28);
+  if(i){tl.to('#orbh',{y:74*i,duration:.4,ease:'power2.inOut'},ts-.45);tl.to('#h_rf',{height:i*25+'%',duration:.4,ease:'power2.inOut'},ts-.45);}
+  ping(ts,'#orbh');packet(ts,{x:500,y:HY(i)-11},{x:900,y:HY(i)-11},.45);
+  document.querySelectorAll(r+' .mt b').forEach((b,j)=>tl.fromTo(b,{width:'0%'},{width:HM[i][j]+'%',duration:.35},ts+.2+j*.1));
+  tl.fromTo('#h_sc'+i,{autoAlpha:0},{autoAlpha:1,duration:.1},ts+.25);
+  const c={v:0};tl.fromTo(c,{v:0},{v:HS[i],duration:.5,onUpdate:()=>{$('h_sc'+i).textContent=Math.round(c.v);}},ts+.25);
+  tl.fromTo(r+' em',{autoAlpha:0},{autoAlpha:1,duration:.3},ts+.45);
+  tl.to(r,{y:74*(HRK[i]-i),duration:.9,ease:'power3.inOut'},T+8.7+HRK[i]*.06);
+  if(HRK[i]<3)tl.to(r,{borderColor:'#7cf2c4',backgroundColor:'rgba(124,242,196,0.14)',duration:.3},T+9.8+HRK[i]*.12);else tl.to(r,{autoAlpha:.4,duration:.3},T+9.8);});
+tl.to('#orbh',{y:0,duration:.7,ease:'power2.inOut'},T+8.7);
+tl.fromTo('#h_sl',{autoAlpha:0,y:6},{autoAlpha:1,y:0,duration:.3},T+10.1);
+tl.fromTo('#h_q,#h_btn',{autoAlpha:0,y:10},{autoAlpha:1,y:0,duration:.35,stagger:.1},T+10.7);
+tl.to('#h_btn',{scale:.9,duration:.12,yoyo:true,repeat:1},T+11.8);tl.fromTo('#h_btn',{backgroundColor:'rgba(124,242,196,0)',color:'#7cf2c4'},{backgroundColor:'#7cf2c4',color:'#110f39',duration:.2},T+11.9);
+[0,1].forEach(k=>{const sp=pos($('h_s'+k)),t0=T+12.1+k*.35,md=mkChip('','mini');
+  along(md,t0,[{x:820,y:HY(k)-30},{x:1080,y:HY(k)-110},{x:sp.x+30,y:sp.cy-30}],.8,'power2.inOut');
+  tl.fromTo('#h_s'+k,{borderColor:'rgba(207,211,238,0.25)',backgroundColor:'rgba(124,242,196,0)'},{borderColor:'#7cf2c4',backgroundColor:'rgba(124,242,196,0.14)',duration:.3},t0+.85);
+  tl.fromTo('#h_s'+k+' div',{autoAlpha:0,x:12},{autoAlpha:1,x:0,duration:.3},t0+.9);
+  packet(t0+1.1,{x:1500,y:sp.cy},{x:1660,y:sp.cy-50},.6,30);});
+tl.to('#h_q,#h_btn',{autoAlpha:0,duration:.25},T+13.7);tl.fromTo('#h_done',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.3},T+14);
+hold('s7','#h_cal',T,6,LH);
+T+=LH+HOLD;T=card('Daily Brief',T,7);sceneIn('s3',T,SCN);
+beat('s3b1',T,7);beat('s3b2',T+4,7);beat('s3b3',T+8,7);beat('s3b4',T+12,7);
 const P3=document.querySelectorAll('#s3 .pipe');act(P3[0],T+8);act(P3[1],T+11.8);
 tl.fromTo('#s3 .fanp',{opacity:0},{opacity:.55,duration:.6,stagger:.12},T+.9);
 const tgt=[12,3,2,4];
@@ -474,8 +603,8 @@ tl.fromTo('#clk',{scale:1,color:'#ffffff'},{scale:1.18,color:'#7cf2c4',duration:
 tl.fromTo('#chk3',{autoAlpha:0,y:8},{autoAlpha:1,y:0,duration:.4},T+14);
 
 /* ---- close (48.5 - 53.5) ---- */
-hold('s3','#o3',T,5);
-T+=SCN;beat('close',T,6);
+hold('s3','#o3',T,7);
+T+=SCN;beat('close',T,8);
 tl.fromTo('#close',{autoAlpha:0},{autoAlpha:1,duration:.6},T);tl.fromTo('#close .cover > *',{y:24,autoAlpha:0},{y:0,autoAlpha:1,duration:.6,stagger:.25},T+.1);
 tl.to('#close',{autoAlpha:0,duration:.5},T+CLOSE-.5);
 tl.to({},{duration:.01},T+CLOSE-.01);
@@ -510,9 +639,6 @@ let sx=null;document.body.addEventListener('pointerdown',e=>{sx=e.clientX;});
 document.body.addEventListener('pointerup',e=>{if(sx===null)return;const dx=e.clientX-sx;sx=null;if(Math.abs(dx)>90){e.stopPropagation();stepTo(dx<0?1:-1);}},true);
 setPaused(false);
 if(location.search.indexOf('video')>-1){$('ctl').style.display='none';hint.style.display='none';}
-const FSE=document.documentElement,FSR=FSE.requestFullscreen||FSE.webkitRequestFullscreen,FSX=document.exitFullscreen||document.webkitExitFullscreen;
-if(FSR&&!window.navigator.standalone&&location.search.indexOf('video')<0){$('fsb').style.display='flex';
-  $('fsb').addEventListener('click',()=>{const on=document.fullscreenElement||document.webkitFullscreenElement;try{on?FSX.call(document):FSR.call(FSE);}catch(e){}});}
 if('serviceWorker' in navigator&&(location.protocol==='https:'||location.hostname==='localhost')){navigator.serviceWorker.register('sw.js').catch(()=>{});}
 window.__tl=tl;window.__beats=beats;window.__setPaused=setPaused;
 </script></body></html>
